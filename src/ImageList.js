@@ -33,8 +33,9 @@ class ImageList extends Component {
     return (
       <div className="App">
         {selectedImage && (
-          <div id="image-modal">
+          <div id="image-modal" data-testid="image-modal">
             <img
+              data-testid="selected-image"
               alt="Selected"
               src={selectedImage.urls.full}
               onClick={() => this.selectImage(null)}
@@ -50,6 +51,7 @@ class ImageList extends Component {
         {images.map(image => {
           return (
             <img
+              data-testid={`image-${image.id}`}
               onClick={() => this.selectImage(image)}
               alt="Thumbnail"
               key={image.id}
